@@ -2,8 +2,8 @@ import React from 'react';
 import { Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import Home from '../components/Home/Home';
-import Setting from '../components/Setting/Setting';
+import Home from '../screens/Home/Home';
+import Setting from '../screens/Setting/Setting';
 
 const Tab = createBottomTabNavigator();
 
