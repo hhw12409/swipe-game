@@ -2,10 +2,11 @@
   "expo": {
     "name": "swipe-game",
     "slug": "swipe-game",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "version": "0.1.0",
+    "androidNavigationBar": {
+      "visible": "immersive"
+    },
+    "assetBundlePatterns": ["**/*"]
   },
   "name": "swipe-game"
 }
