@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
-import { View, Text, Dimensions, Pressable } from 'react-native';
+import React from 'react';
 import styled from 'styled-components/native';
 import colors from '../../constants/colors';
-import Swiper from 'react-native-swiper';
-import icons from '../../constants/icons';
-
-/** test module */
-import { Ionicons } from '@expo/vector-icons';
 import Banner from '../../components/Banner/Banner';
+import Button from '../../components/@shared/Button/Button';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+type HomeScreenProps = NativeStackScreenProps<any, 'Home'>;
 
-// console.log(Math.round(SCREEN_WIDTH / 8));
-const Home = ({ navigation: { navigate } }: any) => {
-  const [index, setIndex] = useState(0);
+const Home = ({ navigation: { navigate } }: HomeScreenProps) => {
   return (
     <Container>
+      <TitleWrapper>
+        <Title>Changwon{`\n`}Tour Game</Title>
+      </TitleWrapper>
       <Banner />
       <BtnWrapper>
-        <Btn onPress={() => console.log('test')}>
-          <BtnText>시작하기</BtnText>
-        </Btn>
+        <Button
+          onPress={() => navigate('OnBoarding', { screen: 'GameTheme' })}
+          content="시작하기"
+        />
+        <Button onPress={() => navigate('OnBoarding', { screen: 'GameLoad' })} content="불러오기" />
       </BtnWrapper>
     </Container>
   );
@@ -33,24 +32,20 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const Btn = styled.Pressable`
-  justify-content: center;
+const TitleWrapper = styled.View`
+  flex: 2.5;
   align-items: center;
-  width: 300px;
-  background-color: ${colors.btnColor};
-  border-radius: 10px;
+  justify-content: center;
 `;
 
-const BtnText = styled.Text`
-  color: white;
-  font-size: 36px;
-  font-weight: 500;
+const Title = styled.Text`
+  font-size: 40px;
+  font-weight: 700;
 `;
 
 const BtnWrapper = styled.View`
-  width: 100%;
-  height: 90%;
-  position: absolute;
+  flex: 1.5;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin-bottom: 30px;
 `;
